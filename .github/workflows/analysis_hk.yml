@@ -17,3 +17,5 @@ jobs:
           STOCK_LIST: 'HSTECH.HK'
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           WECHAT_WEBHOOK_URL: ${{ secrets.WECHAT_WEBHOOK_URL }}
+          AGENT_MODE: ${{ vars.AGENT_MODE }}
+          AGENT_SKILLS: ${{ vars.AGENT_SKILLS }}
