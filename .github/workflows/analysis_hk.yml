@@ -14,7 +14,7 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python main.py --force-run
         env:
-          STOCK_LIST: 'HSTECH.HK'
+          STOCK_LIST: 'hkHSTECH'
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           WECHAT_WEBHOOK_URL: ${{ secrets.WECHAT_WEBHOOK_URL }}
           AGENT_MODE: ${{ vars.AGENT_MODE }}
