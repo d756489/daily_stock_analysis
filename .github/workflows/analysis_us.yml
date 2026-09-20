@@ -19,3 +19,4 @@ jobs:
           WECHAT_WEBHOOK_URL: ${{ secrets.WECHAT_WEBHOOK_URL }}
           AGENT_MODE: ${{ vars.AGENT_MODE }}
           AGENT_SKILLS: ${{ vars.AGENT_SKILLS }}
+          MARKET_REVIEW_REGION: 'us'
