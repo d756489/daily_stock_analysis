@@ -20,4 +20,6 @@ jobs:
           AGENT_MODE: ${{ vars.AGENT_MODE }}
           AGENT_SKILLS: ${{ vars.AGENT_SKILLS }}
           MARKET_REVIEW_REGION: 'cn'
+          AGENT_ARCH: 'multi'
+          AGENT_ORCHESTRATOR_MODE: 'specialist'
 
