@@ -1,8 +1,9 @@
 name: 美股收盘分析
 on:
   schedule:
-    - cron: '0 20 * * 1-5'  # 美东时间 20:00（收盘后 4 小时），自动适配冬夏令时
-    timezone: 'America/New_York'
+    # 美股收盘后推送。美东时间 20:00（夏令时是 UTC 20:00，冬令时是 UTC 21:00）
+    # 这里我们按夏令时设置，次日凌晨4点推送
+    - cron: '0 20 * * 1-5'
   workflow_dispatch:
 
 jobs:
