@@ -1,0 +1,21 @@
+name: 美股收盘分析
+on:
+  schedule:
+    - cron: '0 20 * * 1-5'  # 美东时间 20:00（收盘后 4 小时），自动适配冬夏令时
+    timezone: 'America/New_York'
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: python main.py --force-run
+        env:
+          STOCK_LIST: 'SPX,IXIC'  # 标普 + 纳斯达克
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          WECHAT_WEBHOOK_URL: ${{ secrets.WECHAT_WEBHOOK_URL }}
