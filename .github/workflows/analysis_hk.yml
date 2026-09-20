@@ -21,4 +21,4 @@ jobs:
           AGENT_SKILLS: ${{ vars.AGENT_SKILLS }}
           MARKET_REVIEW_REGION: 'hk'
           AGENT_ARCH: 'multi'
-          AGENT_ORCHESTRATOR_MODE: 'specialist'
+          AGENT_ORCHESTRATOR_MODE: 'standard'
