@@ -1,0 +1,20 @@
+name: A股收盘分析
+on:
+  schedule:
+    - cron: '0 7 * * 1-5'  # 北京时间 15:00
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: python main.py --force-run
+        env:
+          STOCK_LIST: 'sh000016'  # 只放 A股标的
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          WECHAT_WEBHOOK_URL: ${{ secrets.WECHAT_WEBHOOK_URL }}
