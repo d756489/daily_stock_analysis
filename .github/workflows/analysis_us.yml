@@ -1,11 +1,8 @@
 name: 美股收盘分析
 on:
   schedule:
-    # 美股收盘后推送。美东时间 20:00（夏令时是 UTC 20:00，冬令时是 UTC 21:00）
-    # 这里我们按夏令时设置，次日凌晨4点推送
     - cron: '0 20 * * 1-5'
   workflow_dispatch:
-
 jobs:
   analyze:
     runs-on: ubuntu-latest
@@ -17,6 +14,6 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python main.py --force-run
         env:
-          STOCK_LIST: 'SPX,IXIC'  # 标普 + 纳斯达克
+          STOCK_LIST: 'SPX,IXIC'
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           WECHAT_WEBHOOK_URL: ${{ secrets.WECHAT_WEBHOOK_URL }}
