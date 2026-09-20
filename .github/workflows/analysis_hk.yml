@@ -1,9 +1,8 @@
 name: 港股收盘分析
 on:
   schedule:
-    - cron: '0 8 * * 1-5'  # 北京时间 16:00
+    - cron: '0 8 * * 1-5'
   workflow_dispatch:
-
 jobs:
   analyze:
     runs-on: ubuntu-latest
